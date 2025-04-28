@@ -9,13 +9,18 @@ export interface Project {
   color: string;
 }
 
+// Import project images
+import weatherAppImage from '@/assets/weather-app.png';
+import ecommerceAppImage from '@/assets/ecommerce-app.png';
+import jobPortalAppImage from '@/assets/job-portal-app.png';
+
 export const projectsList: Project[] = [
   {
     id: "ecommerce",
     title: "E-Commerce Website",
     summary: "Developed a full-stack e-commerce platform using the MERN stack, featuring real-time inventory management, secure payment integration, and a user-friendly interface.",
     description: "Developed a full-stack e-commerce platform using the MERN stack, featuring real-time inventory management, secure payment integration, and a user-friendly interface. The application includes user authentication, product management, shopping cart, and checkout functionality.",
-    image: "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: ecommerceAppImage,
     features: [
       "Implemented key functionalities including dynamic product listings, user authentication, and a streamlined order processing system.",
       "Optimized for scalability and performance, ensuring smooth and secure transactions for both customers and sellers.",
@@ -31,7 +36,7 @@ export const projectsList: Project[] = [
     title: "Job Portal Website",
     summary: "Designed a MERN stack-based job portal facilitating seamless job searching, application management, and recruiter-candidate interactions.",
     description: "Designed a MERN stack-based job portal facilitating seamless job searching, application management, and recruiter-candidate interactions. The application provides a platform for job seekers to find opportunities and for employers to post jobs and manage applications.",
-    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: jobPortalAppImage,
     features: [
       "Integrated features such as role-based access control, resume uploads, real-time job postings, and application tracking.",
       "Engineered smooth user workflows for job applications and recruiter interactions, ensuring intuitive navigation and clear process visibility.",
@@ -43,27 +48,11 @@ export const projectsList: Project[] = [
     color: "secondary"
   },
   {
-    id: "studyroom",
-    title: "Virtual Study Room",
-    summary: "Built a Virtual Study Room platform using Node.js with a responsive UI powered by modern web technologies, ensuring an interactive user experience.",
-    description: "Built a Virtual Study Room platform using Node.js with a responsive UI powered by modern web technologies, ensuring an interactive user experience. The application allows users to create and join virtual study rooms, collaborate with others, and maintain focus during study sessions.",
-    image: "https://images.unsplash.com/photo-1593642532400-2682810df593?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    features: [
-      "Enabled real-time collaboration for students via RESTful APIs, allowing seamless synchronization between users and the database.",
-      "Streamlined the backend architecture for efficient handling of multiple user sessions and dynamic updates.",
-      "Study timer with break reminders and session tracking.",
-      "Resource sharing for collaborative learning.",
-      "Chat functionality for questions and discussions."
-    ],
-    technologies: ["HTML", "CSS", "JavaScript", "Node.js"],
-    color: "accent"
-  },
-  {
     id: "weather",
     title: "Weather Forecasting App",
     summary: "Developed a responsive weather application that provides current conditions and weekly forecasts with detailed metrics including temperature, humidity, and wind speed.",
     description: "Developed a responsive weather application that provides current conditions and weekly forecasts with detailed metrics including temperature, humidity, and wind speed. The application offers a clean, intuitive interface for users to quickly check weather conditions for any location.",
-    image: "https://images.unsplash.com/photo-1534088568595-a066f410bcda?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: weatherAppImage,
     features: [
       "Location-based weather forecast with search functionality.",
       "Detailed current conditions including temperature, humidity, wind speed, and cloud coverage.",
