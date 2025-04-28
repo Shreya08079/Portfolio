@@ -58,14 +58,6 @@ const Achievements = () => {
                 description="Worked in NGO for one month and provided them their necessities."
                 date="June 2023"
               />
-              
-              <div className="flex items-center justify-center h-40">
-                <img 
-                  src="https://images.unsplash.com/photo-1469571486292-b53601010b89?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                  alt="Volunteer work" 
-                  className="max-h-full rounded-md shadow-sm"
-                />
-              </div>
             </div>
           </div>
         </div>
