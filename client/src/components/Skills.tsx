@@ -19,9 +19,9 @@ const SkillCategory = ({
   icon: React.ElementType; 
   children: React.ReactNode 
 }) => (
-  <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
-    <h3 className="text-xl font-heading font-semibold text-primary mb-6 flex items-center">
-      <Icon className="mr-3 text-2xl" />
+  <div className="bg-black/70 rounded-lg shadow-lg p-6 hover:shadow-2xl transition backdrop-blur-lg border border-white/10 glassmorphism animate-fade-in">
+    <h3 className="text-xl font-heading font-semibold text-white mb-6 flex items-center">
+      <Icon className="mr-3 text-2xl text-white" />
       {title}
     </h3>
     {children}
@@ -29,25 +29,31 @@ const SkillCategory = ({
 );
 
 const SkillIcon = ({ src, alt, name }: { src: string; alt: string; name: string }) => (
-  <div className="flex flex-col items-center">
-    <img src={src} alt={alt} className="w-16 h-16 mb-2" />
-    <span className="font-medium">{name}</span>
+  <div className="flex flex-col items-center group">
+    <img src={src} alt={alt} className="w-16 h-16 mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+    <span className="font-medium text-white/90">{name}</span>
   </div>
 );
 
 const SoftSkill = ({ icon: Icon, name }: { icon: React.ElementType; name: string }) => (
-  <div className="bg-primary/10 rounded-lg p-4 flex items-center">
-    <Icon className="text-2xl text-primary mr-3" />
-    <span className="font-medium">{name}</span>
+  <div className="bg-black/70 rounded-lg p-4 flex items-center backdrop-blur-lg border border-white/10 glassmorphism">
+    <Icon className="text-2xl text-white mr-3" />
+    <span className="font-medium text-white/90">{name}</span>
   </div>
 );
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-16 bg-[#f5f8ff]">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-heading font-bold text-dark text-center mb-12">My Skills</h2>
-        
+    <section id="skills" className="py-16 relative overflow-hidden bg-black">
+      {/* Dark Unsplash background */}
+      <img
+        src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1500&q=80"
+        alt="skills background"
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-60"
+      />
+      <div className="absolute inset-0 bg-black/60 z-0" />
+      <div className="relative z-10 container mx-auto px-4">
+        <h2 className="text-3xl font-heading font-bold text-white text-center mb-12">My Skills</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Languages */}
           <SkillCategory title="Languages" icon={Code}>
@@ -69,7 +75,6 @@ const Skills = () => {
               />
             </div>
           </SkillCategory>
-          
           {/* Frontend */}
           <SkillCategory title="Frontend" icon={Laptop}>
             <div className="flex flex-wrap gap-4">
@@ -90,7 +95,6 @@ const Skills = () => {
               />
             </div>
           </SkillCategory>
-          
           {/* Backend */}
           <SkillCategory title="Backend" icon={Server}>
             <div className="flex flex-wrap gap-4">
@@ -106,7 +110,6 @@ const Skills = () => {
               />
             </div>
           </SkillCategory>
-          
           {/* Tools & Platforms */}
           <SkillCategory title="Tools & Platforms" icon={Drill}>
             <div className="flex flex-wrap gap-4">
@@ -123,11 +126,10 @@ const Skills = () => {
             </div>
           </SkillCategory>
         </div>
-        
         {/* Soft Skills */}
-        <div className="mt-12 bg-white rounded-lg shadow-md p-6">
-          <h3 className="text-xl font-heading font-semibold text-primary mb-6 flex items-center">
-            <Brain className="mr-3 text-2xl" />
+        <div className="mt-12 bg-black/70 rounded-lg shadow-lg p-6 backdrop-blur-lg border border-white/10 glassmorphism animate-fade-in">
+          <h3 className="text-xl font-heading font-semibold text-white mb-6 flex items-center">
+            <Brain className="mr-3 text-2xl text-white" />
             Soft Skills
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

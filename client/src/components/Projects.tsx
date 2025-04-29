@@ -45,29 +45,28 @@ const ProjectCard = ({
   }
 
   return (
-    <div className="project-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+    <div className="project-card bg-black/70 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition backdrop-blur-lg border border-white/10 glassmorphism animate-fade-in">
       <div className="relative">
         <img src={image} alt={title} className="w-full h-56 object-cover" />
         <div 
-          className={`absolute inset-0 ${bgColorClass} opacity-0 transition-opacity duration-300 
-                    flex items-center justify-center hover:opacity-100`}
+          className={`absolute inset-0 bg-${color}/80 opacity-0 transition-opacity duration-300 flex items-center justify-center hover:opacity-100`}
         >
           <h3 className="text-2xl font-heading font-bold text-white">{title}</h3>
         </div>
       </div>
       <div className="p-6">
-        <h3 className={`text-xl font-heading font-semibold ${textColorClass} mb-3`}>{title}</h3>
-        <p className="text-dark/80 mb-4">{description}</p>
+        <h3 className={`text-xl font-heading font-semibold text-white mb-3`}>{title}</h3>
+        <p className="text-white/90 mb-4">{description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {tags.map((tag, index) => (
-            <Badge key={index} variant="outline" className={`${textColorClass} bg-${color}/20`}>
+            <Badge key={index} variant="outline" className={`text-white bg-white/20`}>
               {tag}
             </Badge>
           ))}
         </div>
         <Button 
           size="sm" 
-          className={buttonClass}
+          className="bg-primary hover:bg-primary/90 text-white border-2 border-primary"
           onClick={() => onViewDetails(id)}
         >
           View Details
@@ -89,13 +88,19 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-heading font-bold text-dark text-center mb-6">My Projects</h2>
-        <p className="text-lg text-dark/80 text-center mb-12 max-w-3xl mx-auto">
+    <section id="projects" className="py-16 relative overflow-hidden bg-black">
+      {/* Dark Unsplash background */}
+      <img
+        src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1500&q=80"
+        alt="projects background"
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-60"
+      />
+      <div className="absolute inset-0 bg-black/60 z-0" />
+      <div className="relative z-10 container mx-auto px-4">
+        <h2 className="text-3xl font-heading font-bold text-white text-center mb-6">My Projects</h2>
+        <p className="text-lg text-white/90 text-center mb-12 max-w-3xl mx-auto">
           Showcasing my technical expertise through real-world applications and solutions
         </p>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsList.map((project) => (
             <ProjectCard
@@ -111,7 +116,6 @@ const Projects = () => {
           ))}
         </div>
       </div>
-
       {activeProject && (
         <ProjectModal 
           projectId={activeProject} 

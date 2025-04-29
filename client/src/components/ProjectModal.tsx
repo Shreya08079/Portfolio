@@ -13,71 +13,50 @@ const ProjectModal = ({ projectId, isOpen, onClose }: ProjectModalProps) => {
   
   if (!project) return null;
   
-  let textColorClass = "";
-  let badgeBgClass = "";
-  
-  switch (project.color) {
-    case "secondary":
-      textColorClass = "text-secondary";
-      badgeBgClass = "bg-secondary/20 text-secondary";
-      break;
-    case "accent":
-      textColorClass = "text-accent";
-      badgeBgClass = "bg-accent/20 text-accent";
-      break;
-    default:
-      textColorClass = "text-primary";
-      badgeBgClass = "bg-primary/20 text-primary";
-  }
+  // White mode modal with improved readability
+  const textColorClass = "text-primary";
+  const badgeBgClass = "bg-primary/10 text-primary border border-primary/30";
+  const modalBgClass = "bg-white";
+  const modalTextClass = "text-gray-900";
+  const sectionTitleClass = "text-xl font-heading font-semibold text-primary mb-2";
 
   return (
     <div 
-      className={`fixed inset-0 bg-black/50 flex items-center justify-center z-50 ${isOpen ? 'block' : 'hidden'}`}
+      className={`fixed inset-0 bg-black/40 flex items-center justify-center z-50 ${isOpen ? 'block' : 'hidden'}`}
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="p-6 border-b">
-          <div className="flex justify-between items-center">
-            <h3 className={`text-2xl font-heading font-bold ${textColorClass}`}>{project.title}</h3>
-            <button 
-              className="text-dark hover:text-primary"
-              onClick={onClose}
-              aria-label="Close modal"
-            >
-              <X size={24} />
-            </button>
-          </div>
+      <div className={`w-full max-w-3xl mx-auto rounded-2xl shadow-2xl ${modalBgClass} ${modalTextClass} relative p-0 overflow-y-auto max-h-[90vh]`}>
+        <button
+          className="absolute top-4 right-4 text-gray-400 hover:text-primary text-2xl font-bold focus:outline-none z-10"
+          onClick={onClose}
+          aria-label="Close modal"
+        >
+          <X size={28} />
+        </button>
+        <div className="p-8 pb-0">
+          <h2 className="text-3xl font-heading font-bold text-primary mb-6">{project.title}</h2>
+          <img src={project.image} alt={project.title} className="w-full rounded-lg mb-6 shadow max-h-64 object-cover bg-gray-100" />
         </div>
-        <div className="p-6 space-y-6">
-          <img 
-            src={project.image} 
-            alt={project.title} 
-            className="w-full h-64 object-cover rounded-lg shadow-md"
-          />
-          
+        <div className="p-8 pt-0 space-y-6">
           <div>
-            <h4 className={`text-lg font-heading font-semibold ${textColorClass} mb-2`}>Project Overview</h4>
-            <p className="text-dark/80 mb-4">{project.description}</p>
+            <h3 className={sectionTitleClass}>Project Overview</h3>
+            <p className="mb-4 text-gray-800 leading-relaxed">{project.description}</p>
           </div>
-          
           <div>
-            <h4 className={`text-lg font-heading font-semibold ${textColorClass} mb-2`}>Key Features</h4>
-            <ul className="list-disc list-inside space-y-2 text-dark/80">
+            <h3 className={sectionTitleClass}>Key Features</h3>
+            <ul className="list-disc pl-6 mb-4 text-gray-800 space-y-1">
               {project.features.map((feature, index) => (
                 <li key={index}>{feature}</li>
               ))}
             </ul>
           </div>
-          
           <div>
-            <h4 className={`text-lg font-heading font-semibold ${textColorClass} mb-2`}>Technologies Used</h4>
+            <h4 className={sectionTitleClass}>Technologies Used</h4>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech, index) => (
-                <Badge key={index} className={badgeBgClass}>
-                  {tech}
-                </Badge>
+                <span key={index} className={badgeBgClass + " inline-block px-3 py-1 rounded-full text-sm font-medium"}>{tech}</span>
               ))}
             </div>
           </div>

@@ -16,7 +16,7 @@ const NavLink = ({ href, children, isActive, onClick }: NavLinkProps) => (
     className={`py-2 transition duration-300 ${
       isActive 
         ? "text-primary font-semibold border-b-2 border-primary" 
-        : "text-dark hover:text-primary"
+        : "text-white/90 hover:text-primary"
     }`}
     onClick={onClick}
   >
@@ -56,11 +56,9 @@ const Header = ({ activeSection }: { activeSection: string }) => {
   ];
 
   return (
-    <header className={`bg-white ${sticky ? "shadow-md" : ""} sticky top-0 z-50 transition-shadow duration-300`}>
+    <header className={`bg-black/90 ${sticky ? "shadow-md" : ""} sticky top-0 z-50 transition-shadow duration-300 backdrop-blur-lg border-b border-white/10`}>
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <a href="#" className="flex items-center">
-          <span className="text-xl font-heading font-bold text-primary">Shreya Singh</span>
-        </a>
+        <a href="#" className="flex items-center text-white/90 font-bold text-2xl font-heading tracking-tight">Shreya Singh</a>
         
         {!isMobile && (
           <nav className="flex items-center space-x-6">
@@ -84,7 +82,7 @@ const Header = ({ activeSection }: { activeSection: string }) => {
         
         {isMobile && (
           <button 
-            className="text-dark" 
+            className="text-white" 
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
           >
@@ -119,7 +117,7 @@ const Header = ({ activeSection }: { activeSection: string }) => {
       
       {/* Mobile Menu */}
       {isMobile && (
-        <div className={`bg-white shadow-md ${mobileMenuOpen ? "block" : "hidden"}`}>
+        <div className={`bg-black/95 border-t border-white/10 ${mobileMenuOpen ? "block" : "hidden"}`}>
           <div className="container mx-auto px-4 py-3 flex flex-col space-y-3">
             {navItems.map((item) => (
               <a 
@@ -128,7 +126,7 @@ const Header = ({ activeSection }: { activeSection: string }) => {
                 className={`py-2 transition duration-300 ${
                   activeSection === item.name.toLowerCase()
                     ? "text-primary font-semibold"
-                    : "text-dark hover:text-primary"
+                    : "text-white/90 hover:text-primary"
                 }`}
                 onClick={closeMobileMenu}
               >
