@@ -60,10 +60,6 @@ const Certificates = () => {
             />
           ))}
         </div>
-        
-        <div className="mt-10 text-center">
-          <p className="text-dark/70 italic">More certificates will be added soon.</p>
-        </div>
       </div>
     </section>
   );
