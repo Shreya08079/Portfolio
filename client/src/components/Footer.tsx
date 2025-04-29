@@ -47,7 +47,7 @@ const Footer = () => {
         </div>
         
         <div className="text-center mt-8">
-          <p className="text-white/80">&copy; {new Date().getFullYear()} Shreya Singh. All rights reserved.</p>
+          <p className="text-white/80">Thank you for visiting my portfolio</p>
         </div>
       </div>
     </footer>

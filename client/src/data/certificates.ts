@@ -8,16 +8,16 @@ export const certificatesList: Certificate[] = [
   {
     title: "Google Cloud-Certificate",
     issuer: "Introduction to Generative AI",
-    date: "March 2024"
+    date: "January 2024"
   },
   {
     title: "Coursera University of Colorado Boulder",
-    issuer: "Dynamic Programming, Greedy Algorithm",
-    date: "July 2024"
+    issuer: "Dynamic Programming, Greedy Algorithms",
+    date: "May 2024"
   },
   {
     title: "NPTEL Certified",
     issuer: "Cloud Computing",
-    date: "November 2024"
+    date: "Jul-Oct 2024"
   }
 ];

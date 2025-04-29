@@ -59,8 +59,7 @@ const Header = ({ activeSection }: { activeSection: string }) => {
     <header className={`bg-white ${sticky ? "shadow-md" : ""} sticky top-0 z-50 transition-shadow duration-300`}>
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <a href="#" className="flex items-center">
-          <span className="text-2xl font-heading font-bold text-primary">S</span>
-          <span className="text-xl font-heading ml-1">Shreya Singh</span>
+          <span className="text-xl font-heading font-bold text-primary">Shreya Singh</span>
         </a>
         
         {!isMobile && (

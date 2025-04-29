@@ -1,5 +1,15 @@
-import { Award } from "lucide-react";
+import { Award, ExternalLink } from "lucide-react";
 import { certificatesList } from "@/data/certificates";
+import genAiCertificate from "@/assets/gen-ai-certificate.png";
+import dynamicProgrammingCertificate from "@/assets/dynamic-programming-certificate.png";
+import nptelCloudCertificate from "@/assets/nptel-cloud-certificate.png";
+
+// Map certificate titles to their respective images
+const certificateImages: Record<string, string> = {
+  "Google Cloud-Certificate": genAiCertificate,
+  "Coursera University of Colorado Boulder": dynamicProgrammingCertificate,
+  "NPTEL Certified": nptelCloudCertificate
+};
 
 const CertificateCard = ({ 
   title, 
@@ -11,12 +21,20 @@ const CertificateCard = ({
   date: string;
 }) => (
   <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-    <div className="h-48 bg-gray-200 flex items-center justify-center">
-      <div className="text-center px-4">
-        <Award className="h-12 w-12 text-primary mb-4 mx-auto" />
-        <p className="text-dark font-medium">{title}</p>
-        <p className="text-dark/70 text-sm">{issuer}</p>
-      </div>
+    <div className="h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
+      {certificateImages[title] ? (
+        <img 
+          src={certificateImages[title]} 
+          alt={`${title} Certificate`} 
+          className="w-full h-full object-contain p-2" 
+        />
+      ) : (
+        <div className="text-center px-4">
+          <Award className="h-12 w-12 text-primary mb-4 mx-auto" />
+          <p className="text-dark font-medium">{title}</p>
+          <p className="text-dark/70 text-sm">{issuer}</p>
+        </div>
+      )}
     </div>
     <div className="p-4">
       <h3 className="font-heading font-semibold text-primary">{title}</h3>
