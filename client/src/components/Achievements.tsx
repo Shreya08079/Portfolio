@@ -34,13 +34,13 @@ const Achievements = () => {
               <AchievementItem 
                 title="RIE Entrance Exam"
                 description="Cracked the RIE Entrance Exam and received an admission offer to Government Colleges in Haryana (Central University of Haryana) and Odisha."
-                date="April 2019"
+                date="July 2022"
               />
               
               <AchievementItem 
                 title="Impressive Rank in RIE Entrance Exam"
                 description="Secured an impressive Rank 526 out of over 30,000 applicants in the highly competitive RIE Entrance Exam."
-                date="April 2019"
+                date="July 2022"
               />
             </div>
           </div>
